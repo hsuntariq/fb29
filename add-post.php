@@ -4,7 +4,7 @@
     $mediaName = $_FILES['media']['name'];
     $mediaTmpName = $_FILES['media']['tmp_name'];
 
-
+    // print_r($_FILES['media']);
     move_uploaded_file($mediaTmpName,'./postImages/' . $mediaName);
 
 
