@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,6 +62,15 @@
 </head>
 
 <body>
+
+
+
+    <?php 
+        if(!isset($_SESSION['logged_in'])){
+            header("Location: http://localhost:3000/signup.php");
+        }
+    ?>
+
 
 
     <!-- add post modal -->

@@ -13,7 +13,7 @@
                      <img src="https://i.pravatar.cc/100?img=12" width="36" height="36" class="rounded-circle" alt="">
 
                      <span class="fw-semibold small">
-                         Pny Lecture
+                         <?php echo $_SESSION['logged_in'] ?>
                      </span>
 
                  </a>
@@ -365,6 +365,21 @@
 
                      <span class="small">
                          Super Store Pk
+                     </span>
+
+                 </a>
+             </li>
+             <li>
+                 <a href="./logout.php"
+                     class="sidebar-item d-flex align-items-center gap-3 text-decoration-none text-dark rounded p-2">
+
+                     <div
+                         class="icon-box bg-dark text-white rounded-circle d-flex align-items-center justify-content-center fw-bold">
+                         LG
+                     </div>
+
+                     <span class="small">
+                         Logout
                      </span>
 
                  </a>
