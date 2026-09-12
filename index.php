@@ -87,6 +87,8 @@
 
 
                 <img src="" alt="" height="200px" class="preview object-fit-contain d-none w-100">
+                <video src="" alt="" controls height="200px"
+                    class="video-preview object-fit-contain d-none w-100"></video>
 
 
 
@@ -191,19 +193,21 @@
                         if($item['media'] == ''){
                             echo "";
                         }else{
-
-                        // check if media is video
-                        $isVideo = explode('.',$item['media']);
-                        
-
-
+                            $video = explode('.',$item['media']);
+                            if($video[1] == 'mp4'){
+                                echo "<video control width='100%' src='./postImages/{$item['media']}'></video>";
+                            }
+                            else{
                     ?>
                     <img class="object-fit-cover" src="./postImages/<?php echo $item['media'] ?>" width="100%"
                         height="600px" alt="">
 
 
                     <?php 
-                        }?>
+                        }
+                        }
+                        ?>
+
 
                     <!-- bottom bar -->
 
@@ -277,15 +281,25 @@
     let closeBtn = document.querySelector('.close-modal')
     let imageInput = document.querySelector('#media')
     let imagePreview = document.querySelector('.preview')
+    let videoPreview = document.querySelector('.video-preview')
 
 
 
     imageInput.addEventListener('input', (e) => {
         let file = e.target.files[0]
-        // convert to a link
-        let link = URL.createObjectURL(file)
-        imagePreview.src = link
-        imagePreview.classList.remove('d-none')
+        if (file.type == 'video/mp4') {
+            // convert to a link
+            let link = URL.createObjectURL(file)
+            videoPreview.src = link
+            videoPreview.classList.remove('d-none')
+            imagePreview.classList.add('d-none')
+        } else {
+            // convert to a link
+            let link = URL.createObjectURL(file)
+            imagePreview.src = link
+            imagePreview.classList.remove('d-none')
+            videoPreview.classList.add('d-none')
+        }
     })
 
 
