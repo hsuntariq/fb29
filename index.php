@@ -191,6 +191,12 @@
                         if($item['media'] == ''){
                             echo "";
                         }else{
+
+                        // check if media is video
+                        $isVideo = explode('.',$item['media']);
+                        
+
+
                     ?>
                     <img class="object-fit-cover" src="./postImages/<?php echo $item['media'] ?>" width="100%"
                         height="600px" alt="">
